@@ -23,20 +23,4 @@ class AnnonsMappable extends StaticAnnotation {
   }
 }
 
-@compileTimeOnly("enable macro paradise to expand macro annotations")
-class AnnonsChis(insertAst : String) extends StaticAnnotation {
-  inline def apply(ast: Any): Any = meta {
-    ast match {
-      case xx@q"..$mods class $tName (..$params) extends $template " =>
-        val stats=q""" val bbb = "bbbbb" """
-        val res = q"""..$mods class $tName(..$params) {
-      $stats
-    }"""
-        println(1 to 100 map (_=> "--") reduce(_+_))
-        println(res)
-        res
-    }
-  }
-}
-
 

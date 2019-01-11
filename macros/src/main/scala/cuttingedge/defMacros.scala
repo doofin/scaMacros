@@ -18,9 +18,8 @@ object defMacros {
     """
   }
 }
-/*
-def anylen[t](x: Seq[t]) = macro map[t]
 
+/*
 def map[T : c.WeakTypeTag](c: blackbox.Context)(p: c.Expr[Seq[T]]): c.Tree = {
   import c.universe._
   q"""1"""

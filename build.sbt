@@ -8,17 +8,14 @@ cancelable in Scope.Global := true
 
 scalaVersion in ThisBuild := thisScalaVersion
 
-val macroDeps = Seq(
-  "org.scala-lang" % "scala-reflect" % thisScalaVersion,
-  "org.scalameta"  %% "scalameta"    % "1.8.0"
-)
-
-val macroApplyDeps = Seq(
-  "edu.berkeley.cs" %% "chisel3"            % "3.1.2",
-  "edu.berkeley.cs" %% "firrtl-interpreter" % "1.1.2"
-)
-
 addCompilerPlugin("org.spire-math" %% "kind-projector" % "0.9.6")
+
+val macroDeps = Seq(
+"org.scala-lang" % "scala-reflect" % thisScalaVersion,
+"org.scalameta"  %% "scalameta"    % "1.8.0"
+)
+
+val macroApplyDeps = Seq()
 
 val scalacOptionsAll = Seq(
   "-feature",
@@ -48,9 +45,7 @@ lazy val usage = project
   .settings(libraryDependencies ++= macroApplyDeps, scalacOptions += "-Xsource:2.11")
 
 lazy val root = (project in file(".")).settings( // can not use macro here!
-  organization := "com.cuttingedge",
   version := "0.2",
-  name := "cutting-edge",
   libraryDependencies ++= Seq(),
   scalacOptions ++= scalacOptionsAll
 )
